@@ -4,7 +4,7 @@
 #
 Name     : libgit2
 Version  : 1.5.0
-Release  : 38
+Release  : 39
 URL      : https://github.com/libgit2/libgit2/archive/v1.5.0/libgit2-1.5.0.tar.gz
 Source0  : https://github.com/libgit2/libgit2/archive/v1.5.0/libgit2-1.5.0.tar.gz
 Summary  : No detailed summary available
