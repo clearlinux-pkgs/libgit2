@@ -440,6 +440,7 @@ libgit2.so.1.6:git_odb_add_backend
 libgit2.so.1.6:git_odb_add_disk_alternate
 libgit2.so.1.6:git_odb_backend_data_alloc
 libgit2.so.1.6:git_odb_backend_data_free
+libgit2.so.1.6:git_odb_backend_loose
 libgit2.so.1.6:git_odb_backend_malloc
 libgit2.so.1.6:git_odb_backend_one_pack
 libgit2.so.1.6:git_odb_backend_pack
@@ -461,6 +462,7 @@ libgit2.so.1.6:git_odb_object_free
 libgit2.so.1.6:git_odb_object_id
 libgit2.so.1.6:git_odb_object_size
 libgit2.so.1.6:git_odb_object_type
+libgit2.so.1.6:git_odb_open
 libgit2.so.1.6:git_odb_open_rstream
 libgit2.so.1.6:git_odb_open_wstream
 libgit2.so.1.6:git_odb_read
