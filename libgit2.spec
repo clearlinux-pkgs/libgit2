@@ -4,10 +4,10 @@
 # Using build pattern: cmake
 #
 Name     : libgit2
-Version  : 1.6.3
-Release  : 42
-URL      : https://github.com/libgit2/libgit2/archive/v1.6.3/libgit2-1.6.3.tar.gz
-Source0  : https://github.com/libgit2/libgit2/archive/v1.6.3/libgit2-1.6.3.tar.gz
+Version  : 1.5.1
+Release  : 43
+URL      : https://github.com/libgit2/libgit2/archive/v1.5.1/libgit2-1.5.1.tar.gz
+Source0  : https://github.com/libgit2/libgit2/archive/v1.5.1/libgit2-1.5.1.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 LGPL-2.1 MIT Zlib
@@ -35,8 +35,8 @@ libgit2 - the Git linkable library
 | Build Status | |
 | ------------ | - |
 | **main** branch CI builds | [![CI Build](https://github.com/libgit2/libgit2/workflows/CI%20Build/badge.svg?event=push)](https://github.com/libgit2/libgit2/actions?query=workflow%3A%22CI+Build%22+event%3Apush) |
-| **v1.6 branch** CI builds | [![CI Build](https://github.com/libgit2/libgit2/workflows/CI%20Build/badge.svg?branch=maint%2Fv1.6&event=push)](https://github.com/libgit2/libgit2/actions?query=workflow%3A%22CI+Build%22+event%3Apush+branch%3Amaint%2Fv1.6) |
-| **v1.5 branch** CI builds | [![CI Build](https://github.com/libgit2/libgit2/workflows/CI%20Build/badge.svg?branch=maint%2Fv1.5&event=push)](https://github.com/libgit2/libgit2/actions?query=workflow%3A%22CI+Build%22+event%3Apush+branch%3Amaint%2Fv1.5) |
+| **v1.4 branch** CI builds | [![CI Build](https://github.com/libgit2/libgit2/workflows/CI%20Build/badge.svg?branch=maint%2Fv1.4&event=push)](https://github.com/libgit2/libgit2/actions?query=workflow%3A%22CI+Build%22+event%3Apush+branch%3Amaint%2Fv1.4) |
+| **v1.3 branch** CI builds | [![CI Build](https://github.com/libgit2/libgit2/workflows/CI%20Build/badge.svg?branch=maint%2Fv1.3&event=push)](https://github.com/libgit2/libgit2/actions?query=workflow%3A%22CI+Build%22+event%3Apush+branch%3Amaint%2Fv1.3) |
 | **Nightly** builds | [![Nightly Build](https://github.com/libgit2/libgit2/workflows/Nightly%20Build/badge.svg)](https://github.com/libgit2/libgit2/actions?query=workflow%3A%22Nightly+Build%22) [![Coverity Scan Status](https://scan.coverity.com/projects/639/badge.svg)](https://scan.coverity.com/projects/639) |
 
 %package bin
@@ -78,15 +78,15 @@ license components for the libgit2 package.
 
 
 %prep
-%setup -q -n libgit2-1.6.3
-cd %{_builddir}/libgit2-1.6.3
+%setup -q -n libgit2-1.5.1
+cd %{_builddir}/libgit2-1.5.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679409876
+export SOURCE_DATE_EPOCH=1679412222
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -110,10 +110,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1679409876
+export SOURCE_DATE_EPOCH=1679412222
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libgit2
-cp %{_builddir}/libgit2-%{version}/COPYING %{buildroot}/usr/share/package-licenses/libgit2/edbe3a1a51b534904dd0539218d7303a0deb28b0 || :
+cp %{_builddir}/libgit2-%{version}/COPYING %{buildroot}/usr/share/package-licenses/libgit2/fff98b43c07a11adca8abc02ad657dd628223386 || :
 cp %{_builddir}/libgit2-%{version}/deps/http-parser/COPYING %{buildroot}/usr/share/package-licenses/libgit2/1a00a507fb89bb0018c092d6835077d541e76dc2 || :
 cp %{_builddir}/libgit2-%{version}/deps/pcre/LICENCE %{buildroot}/usr/share/package-licenses/libgit2/11ff082389982b8168263850db69199065f2028d || :
 cp %{_builddir}/libgit2-%{version}/deps/pcre/cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/libgit2/ff3ed70db4739b3c6747c7f624fe2bad70802987 || :
@@ -130,7 +130,7 @@ popd
 
 %files bin
 %defattr(-,root,root,-)
-/usr/bin/git2
+/usr/bin/git2_cli
 
 %files dev
 %defattr(-,root,root,-)
@@ -157,7 +157,6 @@ popd
 /usr/include/git2/diff.h
 /usr/include/git2/email.h
 /usr/include/git2/errors.h
-/usr/include/git2/experimental.h
 /usr/include/git2/filter.h
 /usr/include/git2/global.h
 /usr/include/git2/graph.h
@@ -232,8 +231,8 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libgit2.so.1.6
-/usr/lib64/libgit2.so.1.6.3
+/usr/lib64/libgit2.so.1.5
+/usr/lib64/libgit2.so.1.5.1
 
 %files license
 %defattr(0644,root,root,0755)
@@ -243,5 +242,5 @@ popd
 /usr/share/package-licenses/libgit2/1a00a507fb89bb0018c092d6835077d541e76dc2
 /usr/share/package-licenses/libgit2/302250717721b22e804054f10e5a8d9c6e7328c4
 /usr/share/package-licenses/libgit2/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
-/usr/share/package-licenses/libgit2/edbe3a1a51b534904dd0539218d7303a0deb28b0
 /usr/share/package-licenses/libgit2/ff3ed70db4739b3c6747c7f624fe2bad70802987
+/usr/share/package-licenses/libgit2/fff98b43c07a11adca8abc02ad657dd628223386
